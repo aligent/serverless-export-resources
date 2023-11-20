@@ -1,0 +1,15 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Build artifacts
+.esbuild
+.build
+*.js
+*.map
+
+# Development artifacts
+.vscode
