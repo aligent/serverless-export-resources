@@ -36,7 +36,8 @@ A [Serverless framework](https://www.serverless.com) plugin for creating custom 
 
 ### Variables
 
-| Variable      | Usage                                                 |
-| ------------- | ----------------------------------------------------- |
-| functions     | Array of logical names of Lambda functions to export. |
-| stateMachines | Array of logical names of Step Functions to export.   |
+| Variable      | Usage                                                                                |
+| ------------- | ------------------------------------------------------------------------------------ |
+| functions     | Array of logical names of Lambda functions to export.                                |
+| stateMachines | Array of logical names of Step Functions to export.                                  |
+| prefix        | A prefix for export names. If not provide, export names will be prefixed with `aser` |
