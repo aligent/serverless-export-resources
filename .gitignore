@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+.pnpm-store
+.serverless
+.services_list
+*.env
+coverage
+.esbuild
+.vscode
