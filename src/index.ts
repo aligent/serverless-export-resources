@@ -62,7 +62,7 @@ class ServerlessExportResources implements ServerlessPlugin {
         };
     }
 
-    initialize() {
+    private initialize() {
         this.exportResources = {
             ...this.service.custom.exportResources,
             prefix:
@@ -72,13 +72,17 @@ class ServerlessExportResources implements ServerlessPlugin {
 
         this.validateResourceOutputRequirements();
 
+        this.log.success(
+            'Resource Export requirement validation complete! No errors were found.',
+        );
+
         this.resourceOutputs = this.prepareResourceOutputs();
     }
 
     /**
      * Add custom outputs to original ones
      */
-    updateOutputs() {
+    private updateOutputs() {
         const originalOutputs =
             (this.service.resources as ServerlessResources)?.Outputs || {};
         const customOutputs = this.generateCustomOutputs();
@@ -90,9 +94,11 @@ class ServerlessExportResources implements ServerlessPlugin {
                 ...customOutputs,
             },
         };
+
+        this.log.success('Successfully added custom resource exports!');
     }
 
-    validateResourceOutputRequirements() {
+    private validateResourceOutputRequirements() {
         let errors: string[] = [];
 
         const { functions: functionNames, stateMachines: stateMachineNames } =
@@ -115,12 +121,12 @@ class ServerlessExportResources implements ServerlessPlugin {
         if (errors.length) {
             throw new Error(
                 'Missing Serverless Resource Output requirements\n' +
-                    errors.toString(),
+                    errors.join('\n'),
             );
         }
     }
 
-    prepareResourceOutputs() {
+    private prepareResourceOutputs() {
         const { functions: functionNames, stateMachines: stateMachineNames } =
             this.exportResources;
 
@@ -136,7 +142,7 @@ class ServerlessExportResources implements ServerlessPlugin {
         };
     }
 
-    generateCustomOutputs() {
+    private generateCustomOutputs() {
         const provider = this.serverless.getProvider('aws');
         const stackName = `${this.service.getServiceName()}-${provider.getStage()}`;
 
