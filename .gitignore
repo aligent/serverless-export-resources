@@ -1,10 +1,15 @@
+# package directories
 node_modules
-dist
-build
-.pnpm-store
+jspm_packages
+
+# Serverless directories
 .serverless
-.services_list
-*.env
-coverage
+
+# Build artifacts
 .esbuild
+.build
+*.js
+*.map
+
+# Development artifacts
 .vscode
