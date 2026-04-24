@@ -30,7 +30,7 @@
     "vitest": "0.34.6"
   },
   "resolutions": {
-    "lodash": "4.17.21"
+    "lodash": "4.18.1"
   },
   "peerDependencies": {
     "serverless": "3.x"
