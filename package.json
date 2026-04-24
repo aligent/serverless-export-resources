@@ -1,6 +1,6 @@
 {
   "name": "@aligent/serverless-export-resources",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Serverless framework plugin for custom resources creation and exporting",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,6 +28,9 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "vitest": "0.34.6"
+  },
+  "resolutions": {
+    "lodash": "4.17.21"
   },
   "peerDependencies": {
     "serverless": "3.x"
